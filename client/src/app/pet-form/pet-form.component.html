@@ -1,0 +1,77 @@
+<form [formGroup]="petForm" (ngSubmit)="handleSubmit()">
+  <div class="form-group">
+    <label for="name">name</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="name"
+      required
+      [class.is-invalid]="name.invalid && (name.dirty || name.touched)"
+      [class.is-valid]="name.valid"
+    />
+    <div class="invalid-feedback">Please provide a name!</div>
+  </div>
+  <div class="form-group">
+    <label for="species">species</label>
+    <textarea
+      formControlName="species"
+      class="form-control"
+      id="species"
+      rows="5"
+      required
+      [class.is-invalid]="species.invalid && (species.dirty || species.touched)"
+      [class.is-valid]="species.valid"
+    ></textarea>
+    <div class="invalid-feedback">Please provide a species!</div>
+  </div>
+  <div class="form-group">
+    <label for="note">note</label>
+    <input
+      formControlName="note"
+      type="text"
+      class="form-control"
+      id="note"
+      placeholder="note"
+      required
+      [class.is-invalid]="note.invalid && (note.dirty || note.touched)"
+      [class.is-valid]="note.valid"
+    />
+    <div class="invalid-feedback" *ngIf="note.invalid && note.errors?.['required']">
+      Please provide a pet note!
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="note">birth</label>
+    <input
+      formControlName="birth"
+      type="date"
+      class="form-control"
+      id="birth"
+      placeholder="birth"
+      required
+      [class.is-invalid]="birth.invalid && (birth.dirty || birth.touched)"
+      [class.is-valid]="birth.valid"
+    />
+    <div class="invalid-feedback" *ngIf="birth.invalid && birth.errors?.['required']">
+      Please provide a pet birth!
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="note">death</label>
+    <input
+      formControlName="death"
+      type="date"
+      class="form-control"
+      id="death"
+      placeholder="death"
+
+    />
+  </div>
+
+  
+  
+
+  <button type="submit" class="btn btn-primary" [disabled]="petForm.invalid">Submit</button>
+</form>

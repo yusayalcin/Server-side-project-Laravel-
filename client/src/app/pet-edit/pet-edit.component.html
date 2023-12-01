@@ -1,0 +1,3 @@
+<h1 *ngIf="pet.id">Edit pet</h1>
+<h1 *ngIf="!pet.id">New pet</h1>
+<app-pet-form [pet]="pet" (onSave)="handleSave($event)"></app-pet-form>

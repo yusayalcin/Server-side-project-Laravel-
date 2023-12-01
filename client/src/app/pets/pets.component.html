@@ -1,0 +1,30 @@
+<h2 class="display-2 my-3">Pets</h2>
+<p>
+  <a class="btn btn-primary" routerLink="/pets/new" role="button"
+    >New pet</a
+  >
+
+  <div class="row">
+    <div class="col">
+      <div class="list-group">
+        <a
+          *ngFor="let pet of pets"
+          class="list-group-item list-group-item-action"
+        >
+          <div class="d-flex w-100 justify-content-between align-items-center">
+            <h5 class="mb-1">{{ pet.name }}</h5>
+          </div>
+          <p class="mb-1">{{ pet.species }}</p>
+          <small>
+            <p>{{ pet.note }} </p>
+            <p>Birth: {{ pet.birth }}</p>
+            <p>Death: {{ pet.death }}</p>
+
+            <i class="fas fa-comment"></i>
+          </small>
+          <a class="btn btn-primary" routerLink="/pets/{{pet.id}}/edit" role="button">Edit</a>
+
+        </a>
+      </div>
+    </div>
+  </div>
